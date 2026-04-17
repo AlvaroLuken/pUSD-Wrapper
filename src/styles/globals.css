@@ -1,9 +1,119 @@
+:root {
+  --page-bg: radial-gradient(circle at 20% 10%, #1a243b 0%, #101827 50%, #0a0f1a 100%);
+  --card-border: #2a3040;
+  --card-bg: rgba(11, 14, 22, 0.88);
+  --card-shadow: 0 22px 48px rgba(0, 0, 0, 0.4);
+  --shell-border: #2a3040;
+  --panel-bg: #0d1119;
+  --panel-divider: #252b3a;
+  --panel-label: #b9c0d4;
+  --main-text: #f4f6ff;
+  --muted-text: #a3abc2;
+  --sub-text: #9ca5bf;
+  --input-placeholder: #939bb3;
+  --quick-btn-border: #2e3547;
+  --quick-btn-bg: #121722;
+  --quick-btn-text: #bfc6dc;
+  --quick-btn-bg-hover: #181f2d;
+  --quick-btn-border-hover: #414a61;
+  --token-border: #30374a;
+  --token-bg: #101624;
+  --token-text: #f0f3ff;
+  --token-caret: #c7cde2;
+  --divider-border: #30384a;
+  --divider-bg: #0f1521;
+  --action-row-bg: #0e131e;
+  --cta-border: #2f5f9e;
+  --cta-bg: #1f4f88;
+  --cta-text: #93a7c9;
+  --cta-text-hover: #e8efff;
+  --status-text: #cad0e1;
+  --link-text: #9cc8ff;
+
+  --nav-border: #3f2c8a;
+  --nav-bg-start: #2a175f;
+  --nav-bg-end: #4f46e5;
+  --nav-title: #f9f8ff;
+  --nav-tab-border: #cabdff;
+  --nav-tab-text: #f8f6ff;
+  --nav-tab-bg: rgba(255, 255, 255, 0.08);
+  --nav-tab-bg-hover: rgba(255, 255, 255, 0.16);
+  --nav-tab-active-bg: #f8f6ff;
+  --nav-tab-active-text: #312e81;
+  --nav-tooltip-border: #d6cbff;
+  --nav-tooltip-bg: #ffffff;
+  --nav-tooltip-text: #312e81;
+  --nav-balance-value: #34d37e;
+  --toggle-border: #6f8fff;
+  --toggle-border-hover: #88a2ff;
+  --toggle-bg: rgba(34, 55, 110, 0.94);
+  --toggle-bg-hover: rgba(44, 68, 130, 0.97);
+  --toggle-text: #eff4ff;
+  --toggle-shadow: 0 12px 28px rgba(0, 0, 0, 0.38);
+}
+
+[data-theme='light'] {
+  --page-bg: radial-gradient(circle at 20% 10%, #eef3ff 0%, #e6ecfb 52%, #dfe6f8 100%);
+  --card-border: #d5deef;
+  --card-bg: rgba(255, 255, 255, 0.96);
+  --card-shadow: 0 14px 32px rgba(40, 56, 92, 0.12);
+  --shell-border: #d8e1f1;
+  --panel-bg: #f7f9ff;
+  --panel-divider: #dde6f7;
+  --panel-label: #3e4c6d;
+  --main-text: #1f2b46;
+  --muted-text: #4f5f83;
+  --sub-text: #607199;
+  --input-placeholder: #8393b5;
+  --quick-btn-border: #cdd8ee;
+  --quick-btn-bg: #edf3ff;
+  --quick-btn-text: #445474;
+  --quick-btn-bg-hover: #e3ecfb;
+  --quick-btn-border-hover: #b6c6e4;
+  --token-border: #ccd8ed;
+  --token-bg: #f0f5ff;
+  --token-text: #364a72;
+  --token-caret: #6077a8;
+  --divider-border: #ccd8eb;
+  --divider-bg: #eef3ff;
+  --action-row-bg: #f6f9ff;
+  --cta-border: #2f5f9e;
+  --cta-bg: #356daf;
+  --cta-text: #e7f0ff;
+  --cta-text-hover: #ffffff;
+  --status-text: #445575;
+  --link-text: #225ea8;
+
+  --nav-border: #d7e0f2;
+  --nav-bg-start: #f6f9ff;
+  --nav-bg-end: #e9f0ff;
+  --nav-title: #2e3f65;
+  --nav-tab-border: #c8d5ed;
+  --nav-tab-text: #344a75;
+  --nav-tab-bg: rgba(66, 90, 135, 0.06);
+  --nav-tab-bg-hover: rgba(66, 90, 135, 0.12);
+  --nav-tab-active-bg: #ffffff;
+  --nav-tab-active-text: #2f4b83;
+  --nav-tooltip-border: #d3def2;
+  --nav-tooltip-bg: #ffffff;
+  --nav-tooltip-text: #2f4b83;
+  --nav-balance-value: #1d9b55;
+  --toggle-border: #8da4d2;
+  --toggle-border-hover: #738fc9;
+  --toggle-bg: rgba(255, 255, 255, 0.97);
+  --toggle-bg-hover: #f0f5ff;
+  --toggle-text: #2f4b83;
+  --toggle-shadow: 0 10px 24px rgba(34, 56, 96, 0.18);
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: var(--main-text);
+  background: var(--page-bg);
 }
 
 a {

@@ -1,0 +1,262 @@
+.page {
+  min-height: calc(100vh - 72px);
+  background: var(--page-bg);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.wrapperCard {
+  width: min(710px, 100%);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  padding: 0.7rem;
+  transform: translateY(-20px);
+}
+
+.formTitle {
+  margin: 0 0 0.5rem;
+  color: var(--muted-text);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.formShell {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--shell-border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.panel {
+  background: var(--panel-bg);
+  padding: 1rem 1.1rem 0.9rem;
+}
+
+.panelReceive {
+  border-top: 1px solid var(--panel-divider);
+}
+
+.panelTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.panelLabel {
+  margin: 0;
+  color: var(--panel-label);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.quickActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.quickActionButton {
+  border: 1px solid var(--quick-btn-border);
+  border-radius: 8px;
+  background: var(--quick-btn-bg);
+  color: var(--quick-btn-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.34rem 0.52rem;
+  cursor: pointer;
+}
+
+.quickActionButton:hover {
+  background: var(--quick-btn-bg-hover);
+  border-color: var(--quick-btn-border-hover);
+}
+
+.panelBody {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.amountInput {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  background: transparent;
+  color: var(--main-text);
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0;
+}
+
+.amountInput:focus {
+  outline: none;
+}
+
+.amountInput::placeholder {
+  color: var(--input-placeholder);
+}
+
+.tokenColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+
+.tokenSelector {
+  border: 1px solid var(--token-border);
+  border-radius: 12px;
+  background: var(--token-bg);
+  color: var(--token-text);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.44rem 0.74rem;
+  cursor: default;
+}
+
+.tokenSelector span {
+  margin-left: 0.35rem;
+  color: var(--token-caret);
+}
+
+.tokenBalance {
+  margin: 0;
+  color: var(--muted-text);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.subValue {
+  margin: 0.55rem 0 0;
+  color: var(--sub-text);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.receiveValue {
+  margin: 0;
+  color: var(--panel-label);
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.dividerWrap {
+  position: relative;
+  height: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.dividerButton {
+  width: 38px;
+  height: 38px;
+  margin-top: -19px;
+  border: 1px solid var(--divider-border);
+  border-radius: 999px;
+  background: var(--divider-bg);
+  color: var(--main-text);
+  font-size: 1.2rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: default;
+  z-index: 2;
+}
+
+.actionRow {
+  border-top: 1px solid var(--panel-divider);
+  background: var(--action-row-bg);
+  padding: 0.8rem 0.75rem;
+}
+
+.wrapButton {
+  width: 100%;
+  border: 1px solid var(--cta-border);
+  border-radius: 10px;
+  background: var(--cta-bg);
+  color: var(--cta-text);
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 0.66rem 0.88rem;
+  cursor: pointer;
+}
+
+.wrapButton:hover:not(:disabled) {
+  filter: brightness(1.05);
+  color: var(--cta-text-hover);
+}
+
+.wrapButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.statusText {
+  margin: 0.56rem 0 0;
+  color: var(--status-text);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  word-break: break-word;
+  text-align: center;
+}
+
+.txLink {
+  display: inline-block;
+  margin-top: 0.3rem;
+  color: var(--link-text);
+  text-decoration: none;
+  font-size: 0.82rem;
+}
+
+.txLink:hover {
+  text-decoration: underline;
+}
+
+.floatingThemeToggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  min-width: 96px;
+  height: 52px;
+  padding: 0 0.8rem;
+  border: 1px solid var(--toggle-border);
+  border-radius: 999px;
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  font-size: 1rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  cursor: pointer;
+  box-shadow: var(--toggle-shadow);
+  z-index: 40;
+}
+
+.floatingThemeToggle:hover {
+  background: var(--toggle-bg-hover);
+  border-color: var(--toggle-border-hover);
+}
+
+.toggleIcon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.toggleLabel {
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  opacity: 0.95;
+}
