@@ -283,3 +283,118 @@
   background: var(--toggle-bg-hover);
   border-color: var(--toggle-border-hover);
 }
+
+@media (max-width: 768px) {
+  .page {
+    place-items: start center;
+    padding: 0.7rem 0.55rem 5.5rem;
+  }
+
+  .wrapperCard {
+    transform: translateY(-8px);
+    border-radius: 16px;
+    padding: 0.52rem;
+  }
+
+  .formTitle {
+    font-size: 0.86rem;
+    margin-bottom: 0.42rem;
+  }
+
+  .panel {
+    padding: 0.82rem 0.82rem 0.74rem;
+  }
+
+  .panelTop {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .quickActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .quickActionButton {
+    font-size: 0.83rem;
+    padding: 0.28rem 0.44rem;
+  }
+
+  .panelBody {
+    gap: 0.62rem;
+  }
+
+  .amountInput {
+    font-size: 2.15rem;
+  }
+
+  .receiveValue {
+    font-size: 2.02rem;
+  }
+
+  .tokenSelector {
+    font-size: 0.9rem;
+    padding: 0.36rem 0.62rem;
+  }
+
+  .tokenBalance,
+  .subValue {
+    font-size: 0.84rem;
+  }
+
+  .wrapButton {
+    font-size: 1.02rem;
+    padding: 0.62rem 0.76rem;
+  }
+
+  .floatingThemeToggle {
+    right: 0.65rem;
+    bottom: 0.65rem;
+    min-width: 46px;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    gap: 0;
+  }
+
+  .toggleLabel {
+    display: none;
+  }
+
+  .toggleIcon {
+    font-size: 1.05rem;
+  }
+
+  .floatingGithubLink {
+    left: 0.65rem;
+    bottom: 0.65rem;
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@media (max-width: 420px) {
+  .amountInput {
+    font-size: 1.9rem;
+  }
+
+  .receiveValue {
+    font-size: 1.78rem;
+  }
+
+  .tokenSelector {
+    font-size: 0.84rem;
+  }
+
+  .quickActions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    max-width: 168px;
+    gap: 0.34rem;
+  }
+
+  .quickActionButton {
+    min-width: 48px;
+    text-align: center;
+  }
+}
