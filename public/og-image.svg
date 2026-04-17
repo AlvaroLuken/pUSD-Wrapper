@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="pUSD Wrapper social preview">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1f45" />
+      <stop offset="55%" stop-color="#172f63" />
+      <stop offset="100%" stop-color="#244a8f" />
+    </linearGradient>
+    <linearGradient id="chip" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#edf4ff" />
+      <stop offset="100%" stop-color="#d8e7ff" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#06122d" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1040" cy="110" r="160" fill="#3a67c2" fill-opacity="0.2" />
+  <circle cx="130" cy="540" r="190" fill="#86a9ff" fill-opacity="0.14" />
+
+  <g filter="url(#shadow)">
+    <rect x="95" y="90" width="1010" height="450" rx="28" fill="#0c1838" fill-opacity="0.76" stroke="#6f8fff" stroke-opacity="0.45" />
+  </g>
+
+  <text x="140" y="232" fill="#ffffff" font-family="Inter, Arial, Helvetica, sans-serif" font-size="84" font-weight="800" letter-spacing="0.2">
+    pUSD Wrapper
+  </text>
+  <text x="140" y="302" fill="#d6e4ff" font-family="Inter, Arial, Helvetica, sans-serif" font-size="37" font-weight="500">
+    Wrap USDC.e to pUSD on Polygon
+  </text>
+
+  <rect x="140" y="364" width="220" height="78" rx="38" fill="url(#chip)" />
+  <text x="250" y="414" text-anchor="middle" fill="#1d3565" font-family="Inter, Arial, Helvetica, sans-serif" font-size="36" font-weight="700">USDC.e</text>
+
+  <text x="410" y="414" fill="#9ec0ff" font-family="Inter, Arial, Helvetica, sans-serif" font-size="44" font-weight="700">’</text>
+
+  <rect x="468" y="364" width="190" height="78" rx="38" fill="url(#chip)" />
+  <text x="563" y="414" text-anchor="middle" fill="#1d3565" font-family="Inter, Arial, Helvetica, sans-serif" font-size="36" font-weight="700">pUSD</text>
+
+  <text x="140" y="494" fill="#8fb2f5" font-family="Inter, Arial, Helvetica, sans-serif" font-size="28" font-weight="500">
+    Wallet connect " balance checks " approval + wrap transaction
+  </text>
+</svg>
