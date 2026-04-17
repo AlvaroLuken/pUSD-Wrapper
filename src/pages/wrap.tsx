@@ -12,10 +12,10 @@ import styles from '../styles/Wrap.module.css';
 
 const POLYGON_RPC_URL = process.env.NEXT_PUBLIC_POLYGON_RPC_URL || 'https://polygon-rpc.com';
 const POLYGON_CHAIN_HEX = '0x89';
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://p-usd-wrapper.vercel.app';
+const APP_URL = (process.env.NEXT_PUBLIC_APP_URL || 'https://p-usd-wrapper.vercel.app').replace(/\/+$/, '');
 const PAGE_TITLE = 'pUSD Wrapper';
 const PAGE_DESCRIPTION = 'Wrap USDC.e to pUSD on Polygon with a simple wallet-connected flow for balances, approvals, and wrapping.';
-const SOCIAL_IMAGE_URL = `${APP_URL}/og-image.svg`;
+const SOCIAL_IMAGE_URL = `${APP_URL}/og-image.png`;
 const USDC_E_ADDRESS = POLYMARKET_CONTRACTS.usdcE as `0x${string}`;
 const PUSD_ADDRESS = POLYMARKET_CONTRACTS.collateral as `0x${string}`;
 const ONRAMP_ADDRESS = POLYMARKET_CONTRACTS.collateralOnramp as `0x${string}`;
@@ -237,6 +237,8 @@ const WrapPage: NextPage = () => {
         <meta content="website" property="og:type" />
         <meta content={APP_URL} property="og:url" />
         <meta content={SOCIAL_IMAGE_URL} property="og:image" />
+        <meta content="1200" property="og:image:width" />
+        <meta content="630" property="og:image:height" />
         <meta content="pUSD Wrapper social preview" property="og:image:alt" />
         <meta content="summary_large_image" name="twitter:card" />
         <meta content={PAGE_TITLE} name="twitter:title" />

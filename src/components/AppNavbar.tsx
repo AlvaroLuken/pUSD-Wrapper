@@ -13,7 +13,7 @@ export function AppNavbar({ balanceLabel }: AppNavbarProps) {
       <div className={styles.topNavInner}>
         <div className={styles.topNavLeft}>
           <Link className={styles.topNavBrandLink} href="/">
-            <span className={styles.topNavTitle}>pUSD Wrapper</span>
+            <span className={styles.topNavTitle}>🎁 PolyWrap: Wrap USDC.e to pUSD</span>
           </Link>
         </div>
         <div className={styles.topNavRight}>
