@@ -294,6 +294,7 @@
     transform: translateY(-8px);
     border-radius: 16px;
     padding: 0.52rem;
+    margin-top: 0.6rem;
   }
 
   .formTitle {
