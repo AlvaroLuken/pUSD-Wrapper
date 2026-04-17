@@ -114,6 +114,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: var(--main-text);
   background: var(--page-bg);
+  overflow-x: hidden;
 }
 
 a {

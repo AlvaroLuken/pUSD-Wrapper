@@ -398,3 +398,32 @@
     text-align: center;
   }
 }
+
+@media (max-width: 600px) {
+  .page {
+    padding-left: 0.45rem;
+    padding-right: 0.45rem;
+  }
+
+  .panelBody {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tokenColumn {
+    align-items: flex-start;
+  }
+
+  .tokenBalance {
+    text-align: left;
+  }
+
+  .amountInput {
+    width: 100%;
+  }
+
+  .quickActions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}

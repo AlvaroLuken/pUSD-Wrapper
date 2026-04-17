@@ -24,7 +24,9 @@ export function AppNavbar({ balanceLabel }: AppNavbarProps) {
             </div>
             <span className={styles.topNavBalanceTooltip}>Your pUSD balance on Polygon</span>
           </div>
-          <ConnectButton />
+          <div className={styles.topNavWallet}>
+            <ConnectButton />
+          </div>
         </div>
       </div>
     </header>

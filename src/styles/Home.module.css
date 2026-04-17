@@ -42,6 +42,10 @@
   gap: 0.8rem;
 }
 
+.topNavWallet {
+  display: inline-flex;
+}
+
 .topNavTitle {
   font-size: 1.28rem;
   font-weight: 800;
@@ -2064,32 +2068,65 @@
   }
 
   .topNavInner {
-    width: calc(100% - 20px);
-    margin: 0 10px;
-    gap: 0.45rem;
-    align-items: flex-start;
+    width: calc(100% - 16px);
+    margin: 0 8px;
+    gap: 0.42rem;
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .topNavLeft {
     min-width: 0;
+    width: 100%;
   }
 
   .topNavRight {
+    width: 100%;
     min-width: 0;
-    gap: 0.45rem;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    gap: 0.4rem;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .topNavTitle {
-    font-size: 0.9rem;
-    max-width: min(62vw, 270px);
+    font-size: 0.86rem;
+    max-width: none;
     white-space: normal;
   }
 
   .topNavTab {
-    padding: 0.33rem 0.58rem;
-    font-size: 0.78rem;
+    padding: 0.28rem 0.5rem;
+    font-size: 0.74rem;
+  }
+
+  .topNavBalanceWrap {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .topNavCashTab {
+    width: 100%;
+    justify-content: space-between;
+    min-width: 0;
+  }
+
+  .topNavTabValue {
+    max-width: 40vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .topNavWallet {
+    flex-shrink: 0;
+  }
+
+  .topNavWallet :global(button) {
+    min-height: 34px;
+    padding: 0 0.62rem;
+    border-radius: 10px;
+    font-size: 0.82rem;
   }
 
   .topNavBalanceTooltip {
