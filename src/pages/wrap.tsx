@@ -16,6 +16,15 @@ const APP_URL = (process.env.NEXT_PUBLIC_APP_URL || 'https://p-usd-wrapper.verce
 const PAGE_TITLE = 'pUSD Wrapper';
 const PAGE_DESCRIPTION = 'Wrap USDC.e to pUSD on Polygon with a simple wallet-connected flow for balances, approvals, and wrapping.';
 const SOCIAL_IMAGE_URL = `${APP_URL}/og-image-v3.png`;
+const CANONICAL_URL = APP_URL;
+const PAGE_KEYWORDS = [
+  'wrap USDC.e to pUSD',
+  'pUSD wrapper',
+  'Polymarket pUSD',
+  'USDC.e to pUSD',
+  'Polygon pUSD',
+  'wrap USDC on Polygon',
+].join(', ');
 const USDC_E_ADDRESS = POLYMARKET_CONTRACTS.usdcE as `0x${string}`;
 const PUSD_ADDRESS = POLYMARKET_CONTRACTS.collateral as `0x${string}`;
 const ONRAMP_ADDRESS = POLYMARKET_CONTRACTS.collateralOnramp as `0x${string}`;
@@ -248,10 +257,16 @@ const WrapPage: NextPage = () => {
       <Head>
         <title>{PAGE_TITLE}</title>
         <meta content={PAGE_DESCRIPTION} name="description" />
+        <meta content={PAGE_KEYWORDS} name="keywords" />
+        <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots" />
+        <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="googlebot" />
+        <link href={CANONICAL_URL} rel="canonical" />
         <meta content={PAGE_TITLE} property="og:title" />
         <meta content={PAGE_DESCRIPTION} property="og:description" />
         <meta content="website" property="og:type" />
-        <meta content={APP_URL} property="og:url" />
+        <meta content={CANONICAL_URL} property="og:url" />
+        <meta content="PolyWrap" property="og:site_name" />
+        <meta content="en_US" property="og:locale" />
         <meta content={SOCIAL_IMAGE_URL} property="og:image" />
         <meta content="1200" property="og:image:width" />
         <meta content="630" property="og:image:height" />
@@ -261,7 +276,33 @@ const WrapPage: NextPage = () => {
         <meta content={PAGE_DESCRIPTION} name="twitter:description" />
         <meta content={SOCIAL_IMAGE_URL} name="twitter:image" />
         <meta content="pUSD Wrapper social preview" name="twitter:image:alt" />
+        <meta content="#2f62ff" name="theme-color" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: 'PolyWrap',
+              applicationCategory: 'FinanceApplication',
+              operatingSystem: 'Web',
+              description: PAGE_DESCRIPTION,
+              url: CANONICAL_URL,
+              image: SOCIAL_IMAGE_URL,
+              offers: {
+                '@type': 'Offer',
+                price: '0',
+                priceCurrency: 'USD',
+              },
+              featureList: [
+                'Wrap USDC.e to pUSD on Polygon',
+                'Wallet-connected balances and allowance checks',
+                'On-chain approval and wrap transaction flow',
+              ],
+            }),
+          }}
+          type="application/ld+json"
+        />
       </Head>
       <div>
         <AppNavbar balanceLabel={navBalanceLabel} />
@@ -282,6 +323,23 @@ const WrapPage: NextPage = () => {
             usdcLabel={usdcLabel}
             wrapCtaLabel={wrapCtaLabel}
           />
+          <section className={styles.seoContent} aria-label="About PolyWrap">
+            <h1>Wrap USDC.e to pUSD on Polygon</h1>
+            <p>
+              PolyWrap is a simple pUSD wrapper app that helps you convert USDC.e to pUSD for Polymarket-compatible
+              workflows. Connect your wallet, enter an amount, and submit an on-chain wrap transaction.
+            </p>
+            <h2>How PolyWrap Works</h2>
+            <ul>
+              <li>Reads your USDC.e and pUSD balances on Polygon.</li>
+              <li>Checks allowance for the collateral onramp contract.</li>
+              <li>Requests approval only when needed, then wraps USDC.e to pUSD.</li>
+            </ul>
+            <p>
+              Looking to wrap USDC.e to pUSD quickly? Use the form above to choose an amount and wrap directly from
+              your wallet.
+            </p>
+          </section>
         </main>
         <button
           aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}

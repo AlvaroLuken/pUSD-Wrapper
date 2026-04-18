@@ -317,6 +317,46 @@
   border-color: var(--toggle-border-hover);
 }
 
+.seoContent {
+  width: min(710px, 100%);
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  color: var(--muted-text);
+}
+
+.seoContent h1 {
+  margin: 0 0 0.45rem;
+  font-size: 1.1rem;
+  color: var(--main-text);
+}
+
+.seoContent h2 {
+  margin: 0.7rem 0 0.4rem;
+  font-size: 0.95rem;
+  color: var(--panel-label);
+}
+
+.seoContent p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.seoContent ul {
+  margin: 0 0 0.65rem 1rem;
+  padding: 0;
+}
+
+.seoContent li {
+  margin: 0 0 0.28rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 @media (max-width: 768px) {
   .page {
     place-items: start center;
@@ -404,6 +444,20 @@
     bottom: 0.65rem;
     width: 46px;
     height: 46px;
+  }
+
+  .seoContent {
+    margin-top: 0.7rem;
+    padding: 0.75rem 0.8rem;
+  }
+
+  .seoContent h1 {
+    font-size: 1rem;
+  }
+
+  .seoContent p,
+  .seoContent li {
+    font-size: 0.84rem;
   }
 }
 
