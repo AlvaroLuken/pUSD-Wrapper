@@ -8,6 +8,8 @@ type WrapperCardProps = {
   status: string;
   lastTxHash: string;
   canWrap: boolean;
+  isReadyToWrap: boolean;
+  showInsufficientBalanceHint: boolean;
   wrapCtaLabel: string;
   onAmountChange: (value: string) => void;
   onApplyPreset: (numerator: bigint, denominator: bigint) => void;
@@ -23,6 +25,8 @@ export function WrapperCard({
   status,
   lastTxHash,
   canWrap,
+  isReadyToWrap,
+  showInsufficientBalanceHint,
   wrapCtaLabel,
   onAmountChange,
   onApplyPreset,
@@ -85,9 +89,17 @@ export function WrapperCard({
         </div>
 
         <div className={styles.actionRow}>
-          <button className={styles.wrapButton} disabled={!canWrap} onClick={onWrap} type="button">
+          <button
+            className={`${styles.wrapButton} ${isReadyToWrap ? styles.wrapButtonReady : ''}`}
+            disabled={!canWrap}
+            onClick={onWrap}
+            type="button"
+          >
             {wrapCtaLabel}
           </button>
+          {showInsufficientBalanceHint ? (
+            <p className={styles.wrapHintText}>Insufficient balance.</p>
+          ) : null}
         </div>
       </div>
       {status ? <p className={styles.statusText}>{status}</p> : null}

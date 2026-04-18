@@ -94,9 +94,25 @@ const WrapPage: NextPage = () => {
   const [theme, setTheme] = useState<ThemeMode>('dark');
 
   const numericAmount = Number(amount) || 0;
+  const wrapAmountRaw = useMemo(() => {
+    if (!amount || Number(amount) <= 0) return BigInt(0);
+    try {
+      return parseUnits(amount, 6);
+    } catch {
+      return BigInt(0);
+    }
+  }, [amount]);
   const usdcLabel = formatToken(usdcBalance);
   const pUsdLabel = formatToken(pUsdBalance);
-  const canWrap = Boolean(walletAddress && numericAmount > 0 && !isWrapping);
+  const hasSufficientUsdc = wrapAmountRaw > BigInt(0) && usdcBalance >= wrapAmountRaw;
+  const isReadyToWrap = Boolean(walletAddress && hasSufficientUsdc && !isWrapping);
+  const canWrap = isReadyToWrap;
+  const showInsufficientBalanceHint = Boolean(
+    walletAddress
+      && !isWrapping
+      && wrapAmountRaw > BigInt(0)
+      && !hasSufficientUsdc,
+  );
   const navBalanceLabel = walletAddress ? pUsdLabel : 'Connect wallet';
   const wrapCtaLabel = (() => {
     if (!walletAddress) return 'Connect wallet';
@@ -253,6 +269,7 @@ const WrapPage: NextPage = () => {
           <WrapperCard
             amount={amount}
             canWrap={canWrap}
+            isReadyToWrap={isReadyToWrap}
             lastTxHash={lastTxHash}
             numericAmount={numericAmount}
             onAmountChange={setAmount}
@@ -261,6 +278,7 @@ const WrapPage: NextPage = () => {
             onWrap={() => void wrap()}
             pUsdLabel={pUsdLabel}
             status={status}
+            showInsufficientBalanceHint={showInsufficientBalanceHint}
             usdcLabel={usdcLabel}
             wrapCtaLabel={wrapCtaLabel}
           />
