@@ -25,10 +25,27 @@ const PAGE_KEYWORDS = [
   'Polygon pUSD',
   'wrap USDC on Polygon',
 ].join(', ');
+const FAQ_ITEMS = [
+  {
+    question: 'How do I wrap USDC.e to pUSD?',
+    answer:
+      'Connect your wallet, enter a USDC.e amount, approve the collateral onramp when prompted, and confirm the wrap transaction on Polygon.',
+  },
+  {
+    question: 'Why is the Wrap button disabled?',
+    answer:
+      'The Wrap button is enabled only when your wallet is connected and your entered amount is greater than zero and less than or equal to your USDC.e balance.',
+  },
+  {
+    question: 'Which network does PolyWrap use?',
+    answer: 'PolyWrap runs on Polygon and wraps USDC.e into pUSD using the Polymarket collateral onramp contract.',
+  },
+];
 const USDC_E_ADDRESS = POLYMARKET_CONTRACTS.usdcE as `0x${string}`;
 const PUSD_ADDRESS = POLYMARKET_CONTRACTS.collateral as `0x${string}`;
 const ONRAMP_ADDRESS = POLYMARKET_CONTRACTS.collateralOnramp as `0x${string}`;
 const GITHUB_URL = process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/AlvaroLuken/pUSD-Wrapper';
+const X_URL = process.env.NEXT_PUBLIC_X_URL || 'https://x.com/punk6068';
 const ONRAMP_ABI = [{
   name: 'wrap',
   type: 'function',
@@ -303,6 +320,23 @@ const WrapPage: NextPage = () => {
           }}
           type="application/ld+json"
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: FAQ_ITEMS.map((item) => ({
+                '@type': 'Question',
+                name: item.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: item.answer,
+                },
+              })),
+            }),
+          }}
+          type="application/ld+json"
+        />
       </Head>
       <div>
         <AppNavbar balanceLabel={navBalanceLabel} />
@@ -323,23 +357,6 @@ const WrapPage: NextPage = () => {
             usdcLabel={usdcLabel}
             wrapCtaLabel={wrapCtaLabel}
           />
-          <section className={styles.seoContent} aria-label="About PolyWrap">
-            <h1>Wrap USDC.e to pUSD on Polygon</h1>
-            <p>
-              PolyWrap is a simple pUSD wrapper app that helps you convert USDC.e to pUSD for Polymarket-compatible
-              workflows. Connect your wallet, enter an amount, and submit an on-chain wrap transaction.
-            </p>
-            <h2>How PolyWrap Works</h2>
-            <ul>
-              <li>Reads your USDC.e and pUSD balances on Polygon.</li>
-              <li>Checks allowance for the collateral onramp contract.</li>
-              <li>Requests approval only when needed, then wraps USDC.e to pUSD.</li>
-            </ul>
-            <p>
-              Looking to wrap USDC.e to pUSD quickly? Use the form above to choose an amount and wrap directly from
-              your wallet.
-            </p>
-          </section>
         </main>
         <button
           aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
@@ -352,21 +369,38 @@ const WrapPage: NextPage = () => {
           </span>
           <span className={styles.toggleLabel}>Theme</span>
         </button>
-        <a
-          aria-label="Open GitHub repository"
-          className={styles.floatingGithubLink}
-          href={GITHUB_URL}
-          rel="noreferrer"
-          target="_blank"
-          title="GitHub repository"
-        >
-          <svg aria-hidden="true" height="20" viewBox="0 0 16 16" width="20">
-            <path
-              d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38v-1.33c-2.23.49-2.7-1.08-2.7-1.08-.37-.93-.9-1.18-.9-1.18-.73-.5.06-.49.06-.49.81.06 1.24.83 1.24.83.72 1.23 1.88.88 2.34.67.07-.52.28-.88.5-1.08-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.58.82-2.14-.08-.2-.36-1.01.08-2.1 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.56.82 1.27.82 2.14 0 3.07-1.87 3.75-3.66 3.95.29.25.54.73.54 1.48v2.2c0 .21.14.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"
-              fill="currentColor"
-            />
-          </svg>
-        </a>
+        <div className={styles.floatingSocialGroup}>
+          <a
+            aria-label="Open GitHub repository"
+            className={styles.floatingGithubLink}
+            href={GITHUB_URL}
+            rel="noreferrer"
+            target="_blank"
+            title="GitHub repository"
+          >
+            <svg aria-hidden="true" height="20" viewBox="0 0 16 16" width="20">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38v-1.33c-2.23.49-2.7-1.08-2.7-1.08-.37-.93-.9-1.18-.9-1.18-.73-.5.06-.49.06-.49.81.06 1.24.83 1.24.83.72 1.23 1.88.88 2.34.67.07-.52.28-.88.5-1.08-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.58.82-2.14-.08-.2-.36-1.01.08-2.1 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.56.82 1.27.82 2.14 0 3.07-1.87 3.75-3.66 3.95.29.25.54.73.54 1.48v2.2c0 .21.14.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+          <a
+            aria-label="Open X profile"
+            className={styles.floatingXLink}
+            href={X_URL}
+            rel="noreferrer"
+            target="_blank"
+            title="X profile"
+          >
+            <svg aria-hidden="true" height="18" viewBox="0 0 24 24" width="18">
+              <path
+                d="M18.9 2h3.68l-8.04 9.19L24 22h-7.41l-5.8-7.58L4.16 22H.48l8.6-9.83L0 2h7.6l5.25 6.92L18.9 2Zm-1.29 17.8h2.04L6.49 4.1H4.3L17.61 19.8Z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   );
